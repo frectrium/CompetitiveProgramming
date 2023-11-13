@@ -22,3 +22,15 @@ void updatebit(int &n, int i, int v){
     mask = (v<<i);
     n = (n|mask);
 }
+
+void clearnbits(int &n, int i){
+    int mask = (-1<<i);
+    n = (n & mask);
+}
+
+void clearbitrange(int &n, int i, int j){
+    int a = (~0)<<(j+1);
+    int b = (1<<i)-1;
+    int mask = a|b;
+    n = n & mask;
+}
