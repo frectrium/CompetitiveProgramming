@@ -1,36 +1,45 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int getbit(int &n, int i){
+int getBit(int &n, int i){
     int mask = (1<<i);
     return (n&mask) > 0 ? 1 : 0;
 }
 
-void setbit(int &n, int i){
+void setBit(int &n, int i){
     int mask = (1<<i);
     n = (n|mask);
 }
 
-void clearbit(int &n, int i){
+void clearBit(int &n, int i){
     int mask = ~(1<<i);
     n = n & mask;
 }
 
-void updatebit(int &n, int i, int v){
+void updateBit(int &n, int i, int v){
     int mask = ~(1<<i);
     n = n & mask;
     mask = (v<<i);
     n = (n|mask);
 }
 
-void clearnbits(int &n, int i){
+void clearnBits(int &n, int i){
     int mask = (-1<<i);
     n = (n & mask);
 }
 
-void clearbitrange(int &n, int i, int j){
+void clearBitRange(int &n, int i, int j){
     int a = (~0)<<(j+1);
     int b = (1<<i)-1;
     int mask = a|b;
     n = n & mask;
+}
+
+void replaceBits(int &n, int m, int i, int j){
+    int a = (~0)<<(j+1);
+    int b = (1<<i)-1;
+    int mask = a|b;
+    n = n & mask;
+    mask = m << j;
+    n = n | mask;
 }
